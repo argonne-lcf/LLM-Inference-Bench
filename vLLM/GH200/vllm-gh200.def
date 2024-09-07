@@ -1,0 +1,49 @@
+Bootstrap: docker
+From: nvcr.io/nvidia/pytorch:24.06-py3
+
+
+%post
+
+NOW=`date`
+echo "export NOW=\"${NOW}\"" >> $SINGULARITY_ENVIRONMENT
+
+mkdir /extra
+mkdir /xdisk
+
+chown root:root /usr/lib
+apt update -y && apt install -y build-essential curl openssh-server openssh-client pdsh
+
+pip install --upgrade pip wheel
+
+pip install \
+    accelerate \
+    deepspeed \
+    openai \
+    peft \
+    pyarrow==14.0.2 \
+    sentencepiece \
+    tiktoken \
+    transformers \
+    trl
+
+pip install stanford-stk --no-deps
+
+pip install \
+    aioprometheus \
+    fastapi \
+    fschat[model_worker,webui] \
+    lm-format-enforcer==0.10.3 \
+    outlines \
+    prometheus-fastapi-instrumentator \
+    protobuf==3.20.3 \
+    ray==2.9.2 \
+    typer==0.9.4 \
+    uvicorn
+
+
+
+
+
+%label 
+This container uses nvidia ubuntu 22.04 as base and installs requirements to run vLLM on GH200. 
+Maintaier: Sid Raskar(sraskar@anl.gov)
