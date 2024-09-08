@@ -1,0 +1,37 @@
+{
+    "Filters":[
+        {
+            "name": "Hardware",
+            "multi_select": "yes"
+        },
+        {
+            "name": "Num of Hardware",
+            "multi_select": "yes"
+        },
+        {
+            "name": "Framework",
+            "multi_select": "yes"
+        },
+        {
+            "name": "Model",
+            "multi_select": "yes"
+        },
+        {
+            "name": "Input Output Length",
+            "multi_select": "yes"
+        },
+        {
+            "name": "Batch Size",
+            "multi_select": "yes"
+        },
+        {
+            "name": "speculative_decoding",
+            "multi_select": "yes"
+        }
+    ],
+    "Selectors":[
+        {"id":"x", "name": "X-axis", "multi_select": "no", "values":["", "Input Output Length", "Batch Size", "Num of Hardware"]},
+        {"id":"y", "name": "Y-axis", "multi_select": "no", "values":["", "Latency", "Throughput"]},
+        {"id":"c", "name": "Color By", "multi_select": "yes", "values":["Num of Hardware", "Hardware", "Input Output Length", "Batch Size", "Framework", "Model", "speculative_decoding"]}
+    ]
+}
