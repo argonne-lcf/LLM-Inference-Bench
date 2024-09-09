@@ -20,8 +20,6 @@ import csv
 import os
 from pathlib import Path
 
-# from huggingface_hub import login
-# login("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")
 
 from power_utils import gpuPowerProbe
 power_profile = gpuPowerProbe(interval=0.10)
