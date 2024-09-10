@@ -4,7 +4,7 @@ LLM-Inference-Bench: Inference Benchmarking of Large Language Models on AI Accel
 
 ## Metrix of Evaluated Frameworks and Hardwares :
 
-| Framework/ Hardware | NVIDIA A100 | NVIDIA H100 | NVIDIA GH200 | AMD MI250 | Intel PVC | Habana Gaudi2 | Sambanova SN40L |
+| Framework/ Hardware | NVIDIA A100 | NVIDIA H100 | NVIDIA GH200 | AMD MI250 | Intel Max1550 | Habana Gaudi2 | Sambanova SN40L |
 |:-----------------------:|:---------------:|:---------------:|:------------:|:---------:|:---------:|:-------------:|:---------------:|
 |         [vLLM](./vLLM/README.md)        |     [Yes](./vLLM/A100/README.MD)    |     [Yes](./vLLM/H100/README.MD)    |      [Yes](./vLLM/GH200/README.MD)     |    [Yes](./vLLM/MI250/README.MD)   |    [Yes](./vLLM/PVC/README.md)   |       No      |       N/A       |
 |      [llama.cpp](./llama.cpp/README.md)      |     [Yes](./llama.cpp/A100/README.MD)    |     [Yes](./llama.cpp/H100/README.MD)    |      [Yes](./llama.cpp/GH200/README.MD)     |    [Yes](./llama.cpp/MI250/README.MD)   |    [Yes](./llama.cpp/PVC/README.MD)   |      N/A      |       N/A       |
