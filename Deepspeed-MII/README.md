@@ -8,3 +8,10 @@ $ module load conda
 $ conda create -n Deepspeed -y
 $ conda activate Deepspeed
 ```
+
+2. Install Requirements
+```bash
+$ pip3 install -r requirements.txt
+$ pip install deepspeed-mii
+$ conda install -y git cmake ninja
+```
