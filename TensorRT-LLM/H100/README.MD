@@ -32,7 +32,7 @@
 
     python convert_checkpoint.py --tp_size=1 --model_dir=$dir_1 --output_dir=$dir_2 --dtype=float16
 
-    trtllm-build --checkpoint_dir=$dir_2 --output_dir=$dir_3 --gemm_plugin=float16 --max_batch_size=1 --max_input_len=128 --max_output_len=128
+    trtllm-build --checkpoint_dir=$dir_2 --output_dir=$dir_3 --gemm_plugin=float16 --max_batch_size=1 --max_input_len=128
 
     python3 run.py --model_name="mistral_7b" --tokenizer_dir=$dir_1 --engine_dir=$dir_3 --max_output_len=128 --max_input_length=$input_output_length --run_profiling --batch_size=1 
    ```
