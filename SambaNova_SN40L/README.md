@@ -40,14 +40,14 @@
     ```
 
 
-5. Run LLMs on synthetic datase
+6. Run LLMs on synthetic datase
 
     ```
     bash run_synthetic_dataset.sh
     ```
 
 
-5. View Results
+7. View Results
 
     ```
     View end-to-end latency, TTFT in ./data/results/llmperf
