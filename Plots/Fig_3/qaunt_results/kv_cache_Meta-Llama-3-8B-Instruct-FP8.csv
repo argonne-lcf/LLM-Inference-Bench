@@ -1,0 +1,21 @@
+Hardware,Num of Hardware,Framework,Model,Input Output Length,Batch Size,kv_cache_dtype,latency,throughput
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,128,1,Weight = fp8, KV Cache = fp8,0.7699878138955683,332.47279421842995
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,256,1,Weight = fp8, KV Cache = fp8,1.5309853600338101,334.4251443323358
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,512,1,Weight = fp8, KV Cache = fp8,3.1207224940881133,328.1291437927795
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,1024,1,Weight = fp8, KV Cache = fp8,6.144760839175433,333.29206027729174
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,2048,1,Weight = fp8, KV Cache = fp8,12.414477087091655,329.9373764408447
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,128,16,Weight = fp8, KV Cache = fp8,0.9049272441770881,4526.330736925454
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,256,16,Weight = fp8, KV Cache = fp8,1.8740181380417198,4371.355769565997
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,512,16,Weight = fp8, KV Cache = fp8,3.97603269899264,4120.690457136085
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,1024,16,Weight = fp8, KV Cache = fp8,8.905026635853574,3679.719482036012
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,2048,16,Weight = fp8, KV Cache = fp8,21.628968250006437,3030.0104583111815
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,128,32,Weight = fp8, KV Cache = fp8,1.0523184430785477,7784.715790055319
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,256,32,Weight = fp8, KV Cache = fp8,2.242120796116069,7307.36721606673
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,512,32,Weight = fp8, KV Cache = fp8,4.797609308967367,6830.06845487653
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,1024,32,Weight = fp8, KV Cache = fp8,11.112242115894333,5897.639676718432
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,2048,32,Weight = fp8, KV Cache = fp8,28.345512738917023,4624.082873619868
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,128,64,Weight = fp8, KV Cache = fp8,1.4434360191226006,11350.693610901502
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,256,64,Weight = fp8, KV Cache = fp8,3.054546851897612,10727.614140095166
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,512,64,Weight = fp8, KV Cache = fp8,6.955466364044696,9422.22944801791
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,1024,64,Weight = fp8, KV Cache = fp8,16.766064875992015,7817.696100394263
+Nvidia H100 GPU,1,vLLM,neuralmagic/Meta-Llama-3-8B-Instruct-FP8,2048,64,Weight = fp8, KV Cache = fp8,45.70058059808798,5736.1196853365045

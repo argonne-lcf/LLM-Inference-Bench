@@ -1,0 +1,134 @@
+Hardware,Num of Hardware,Framework,Model,Input Output Length,Batch Size,kv_cache_dtype,latency,throughput
+
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,1,"Weight = fp16, KV Cache = fp16",1.010333460289985,253.3816903644101
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,1,"Weight = fp16, KV Cache = fp16",2.0343496394343674,251.6774845755408
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,1,"Weight = fp16, KV Cache = fp16",4.176329005975276,245.19141057491245
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,1,"Weight = fp16, KV Cache = fp16",8.197732408065349,249.82518311833073
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,1,"Weight = fp16, KV Cache = fp16",16.666050790809095,245.7690817946409
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,16,"Weight = fp16, KV Cache = fp16",1.1884269518777728,3446.572794001448
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,16,"Weight = fp16, KV Cache = fp16",2.434537319932133,3364.9104217586473
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,16,"Weight = fp16, KV Cache = fp16",5.12163628032431,3198.9776515255667
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,16,"Weight = fp16, KV Cache = fp16",11.196044038049877,2926.7480449913915
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,32,"Weight = fp16, KV Cache = fp16",1.3381856889463961,6121.721423018557
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,32,"Weight = fp16, KV Cache = fp16",2.827963484916836,5793.568441525268
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,32,"Weight = fp16, KV Cache = fp16",6.013485499192029,5449.086059058877
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,32,"Weight = fp16, KV Cache = fp16",13.557515712920576,4833.92395684579
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,32,"Weight = fp16, KV Cache = fp16",33.04554203618318,3966.404904373572
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,64,"Weight = fp16, KV Cache = fp16",1.8078341940417886,9062.778021346176
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,64,"Weight = fp16, KV Cache = fp16",3.701150704175234,8853.462779301239
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,64,"Weight = fp16, KV Cache = fp16",8.237546034157276,7955.767376382803
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,64,"Weight = fp16, KV Cache = fp16",19.312098698690534,6787.040706709282
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,64,"Weight = fp16, KV Cache = fp16",50.99662512680516,5140.418593351392
+
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,1,"Weight = fp16, KV Cache = fp8",0.9973997483029962,256.6673998420047
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,1,"Weight = fp16, KV Cache = fp8",2.050437508150935,249.70280633508148
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,1,"Weight = fp16, KV Cache = fp8",4.141500025987625,247.25340904852615
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,1,"Weight = fp16, KV Cache = fp8",8.367716738022864,244.75015874926765
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,1,"Weight = fp16, KV Cache = fp8",16.961227899882942,241.4919500037063
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,16,"Weight = fp16, KV Cache = fp8",1.1969947698526084,3421.903005060214
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,16,"Weight = fp16, KV Cache = fp8",2.503572807647288,3272.123732522229
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,16,"Weight = fp16, KV Cache = fp8",5.309644120745361,3085.7058641625185
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,16,"Weight = fp16, KV Cache = fp8",11.884978183079511,2757.0938284641848
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,16,"Weight = fp16, KV Cache = fp8",28.314875633921474,2314.5430990870145
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,16,"Weight = fp16, KV Cache = fp16",25.940946077927947,2526.3535031886063
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,32,"Weight = fp16, KV Cache = fp8",1.3687224215827882,5985.143423402669
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,32,"Weight = fp16, KV Cache = fp8",2.9960704250261188,5468.4962887203055
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,32,"Weight = fp16, KV Cache = fp8",6.570708645973355,4986.981125708687
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,32,"Weight = fp16, KV Cache = fp8",15.533497912809253,4219.011092534259
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,32,"Weight = fp16, KV Cache = fp8",40.91868844581768,3203.230723622984
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,64,"Weight = fp16, KV Cache = fp8",1.7918249820359051,9143.750178873046
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,64,"Weight = fp16, KV Cache = fp8",3.9757542172446847,8241.95818188912
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,64,"Weight = fp16, KV Cache = fp8",9.120373255107552,7185.670823647356
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,64,"Weight = fp16, KV Cache = fp8",23.043681737035513,5687.97996326007
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,64,"Weight = fp16, KV Cache = fp8",65.51213897718117,4001.4568916961875
+
+
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,1,"Weight = fp8, KV Cache = fp8",0.7699878138955683,332.47279421842995
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,1,"Weight = fp8, KV Cache = fp8",1.5309853600338101,334.4251443323358
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,1,"Weight = fp8, KV Cache = fp8",3.1207224940881133,328.1291437927795
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,1,"Weight = fp8, KV Cache = fp8",6.144760839175433,333.29206027729174
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,1,"Weight = fp8, KV Cache = fp8",12.414477087091655,329.9373764408447
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,16,"Weight = fp8, KV Cache = fp8",0.9049272441770881,4526.330736925454
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,16,"Weight = fp8, KV Cache = fp8",1.8740181380417198,4371.355769565997
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,16,"Weight = fp8, KV Cache = fp8",3.97603269899264,4120.690457136085
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,16,"Weight = fp8, KV Cache = fp8",8.905026635853574,3679.719482036012
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,16,"Weight = fp8, KV Cache = fp8",21.628968250006437,3030.0104583111815
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,32,"Weight = fp8, KV Cache = fp8",1.0523184430785477,7784.715790055319
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,32,"Weight = fp8, KV Cache = fp8",2.242120796116069,7307.36721606673
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,32,"Weight = fp8, KV Cache = fp8",4.797609308967367,6830.06845487653
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,32,"Weight = fp8, KV Cache = fp8",11.112242115894333,5897.639676718432
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,32,"Weight = fp8, KV Cache = fp8",28.345512738917023,4624.082873619868
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,64,"Weight = fp8, KV Cache = fp8",1.4434360191226006,11350.693610901502
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,64,"Weight = fp8, KV Cache = fp8",3.054546851897612,10727.614140095166
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,64,"Weight = fp8, KV Cache = fp8",6.955466364044696,9422.22944801791
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,64,"Weight = fp8, KV Cache = fp8",16.766064875992015,7817.696100394263
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,64,"Weight = fp8, KV Cache = fp8",45.70058059808798,5736.1196853365045
+
+
+
+
+
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,1,"Weight = fp16, KV Cache = fp16",1.8136872490867972,141.14892197036593
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,1,"Weight = fp16, KV Cache = fp16",3.6555161848664284,140.06229875814606
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,1,"Weight = fp16, KV Cache = fp16",7.345290701836348,139.40905017469174
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,1,"Weight = fp16, KV Cache = fp16",14.87345455866307,137.6949781183914
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,1,"Weight = fp16, KV Cache = fp16",29.921171466819942,136.89303590743827
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,16,"Weight = fp16, KV Cache = fp16",2.1424761498346925,1911.8065796513235
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,16,"Weight = fp16, KV Cache = fp16",4.442166191525757,1844.145321628834
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,16,"Weight = fp16, KV Cache = fp16",9.135003834031522,1793.5405718126888
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,16,"Weight = fp16, KV Cache = fp16",19.82253386825323,1653.0681807778153
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,16,"Weight = fp16, KV Cache = fp16",45.9155810829252,1427.3150519785345
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,32,"Weight = fp16, KV Cache = fp16",2.6106681004166603,3137.8940887555045
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,32,"Weight = fp16, KV Cache = fp16",5.324554972350597,3077.064672086024
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,32,"Weight = fp16, KV Cache = fp16",11.586630066856742,2828.087184187577
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,32,"Weight = fp16, KV Cache = fp16",26.232975291088223,2498.2297765615504
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,32,"Weight = fp16, KV Cache = fp16",65.49136094748974,2001.363204302505
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,64,"Weight = fp16, KV Cache = fp16",3.2715533087030053,5008.018654751914
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,64,"Weight = fp16, KV Cache = fp16",6.926190788857639,4731.027631048631
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,64,"Weight = fp16, KV Cache = fp16",15.247875190339983,4298.041476724518
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,64,"Weight = fp16, KV Cache = fp16",35.98174176923931,3642.7363867096924
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,64,"Weight = fp16, KV Cache = fp16",125.51957497373223,2088.471061624129
+
+
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,1,"Weight = fp16, KV Cache = fp8",2.1574238119646907,118.66004193532551
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,1,"Weight = fp16, KV Cache = fp8",4.895358109846711,104.58887552478409
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,1,"Weight = fp16, KV Cache = fp8",10.36438170261681,98.79991198524263
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,1,"Weight = fp16, KV Cache = fp8",20.790749019011855,98.50534957289084
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,1,"Weight = fp16, KV Cache = fp8",41.761981506831944,98.07963732108654
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,16,"Weight = fp16, KV Cache = fp8",2.858008257113397,1433.1659083927843
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,16,"Weight = fp16, KV Cache = fp8",7.035507749766111,1164.3793584439354
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,16,"Weight = fp16, KV Cache = fp8",18.02412870619446,909.0037175760519
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,16,"Weight = fp16, KV Cache = fp8",52.34908778592944,625.9516905814639
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,16,"Weight = fp16, KV Cache = fp8",173.35739336442202,378.03983278771364
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,32,"Weight = fp16, KV Cache = fp8",4.025614068843424,2034.9690407241635
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,32,"Weight = fp16, KV Cache = fp8",10.287015691399574,1592.6873732386537
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,32,"Weight = fp16, KV Cache = fp8",30.26938700582832,1082.545873614506
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,32,"Weight = fp16, KV Cache = fp8",98.89914422761649,662.6548744362118
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,32,"Weight = fp16, KV Cache = fp8",351.5431236382574,372.8475717103625
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,128,64,"Weight = fp16, KV Cache = fp8",5.834038084372878,2808.3464254178202
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,256,64,"Weight = fp16, KV Cache = fp8",16.010361516848207,2046.674584175829
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,512,64,"Weight = fp16, KV Cache = fp8",49.45504141971469,1325.163180914349
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,64,"Weight = fp16, KV Cache = fp8",168.10905429907143,779.6843575529173
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,2048,64,"Weight = fp16, KV Cache = fp8",613.4305830365047,427.3409367729552
+
+
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,1,"Weight = fp16, KV Cache = int8",14.50101923942566,141.2314518162873
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,16,"Weight = fp16, KV Cache = int8",18.127875804901,1807.60285168
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,32,"Weight = fp16, KV Cache = int8",21.63398265838623,3029.308150739204
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,64,"Weight = fp16, KV Cache = int8",30.88301181793213,4244.145641387652
+
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,1,"Weight = fp16, KV Cache = fp8",18.554802894592285,110.37573460814723
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,16,"Weight = fp16, KV Cache = fp8",42.53575396537781,770.3636810263591
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,32,"Weight = fp16, KV Cache = fp8",56.17823100090027,1166.5728669695877
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,64,"Weight = fp16, KV Cache = fp8",94.74281620979309,1383.450537397597
+
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,1,"Weight = int8, KV Cache = int8",10.196874141693115,200.84586428561576
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,16,"Weight = int8, KV Cache = int8",13.064074039459229,2508.2527778873787
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,32,"Weight = int8, KV Cache = int8",15.711899042129517,4171.106231288358
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,64,"Weight = int8, KV Cache = int8",21.055591344833374,6225.044827922275
+
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,1,"Weight = int8, KV Cache = fp8",14.350790739059448,142.7099061813946
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,16,"Weight = int8, KV Cache = fp8",37.61287069320679,871.1911480321598
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,32,"Weight = int8, KV Cache = fp8",51.24859929084778,1278.7861699022812
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,64,"Weight = int8, KV Cache = fp8",87.59100770950317,1496.409316749753
+

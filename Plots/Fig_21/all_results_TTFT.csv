@@ -1,0 +1,37 @@
+Hardware,Num of Hardware,Framework,Model,Input Length,Output Length,Batch Size,Latency
+
+AMD MI300X GPU,1,vLLM,meta-llama/Llama-2-7b-hf,1024,1,16,2.2758256473345684
+AMD MI300X GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,1,16,2.489681196435898
+AMD MI300X GPU,1,vLLM,mistralai/Mistral-7B-v0.1,1024,1,16,2.4323179617359227
+
+AMD MI250 GPU,1,vLLM,meta-llama/Llama-2-7b-hf,1024,1,16,2.1599140379267436
+AMD MI250 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,1,16,2.1736202720707904
+AMD MI250 GPU,1,vLLM,mistralai/Mistral-7B-v0.1,1024,1,16,1.9624839581549167
+
+Nvidia H100 GPU,1,vLLM,meta-llama/Llama-2-7b-hf,1024,1,16,0.4216477160962919
+Nvidia H100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,1,16,0.42566500790417194
+Nvidia H100 GPU,1,vLLM,mistralai/Mistral-7B-v0.1,1024,1,16,0.42516071242280307
+
+Nvidia GH200 GPU,1,vLLM,meta-llama/Llama-2-7b-hf,1024,1,16,0.3566369306606551
+Nvidia GH200 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,1,16,0.3781235009199008
+Nvidia GH200 GPU,1,vLLM,mistralai/Mistral-7B-v0.1,1024,1,16,0.36953612103437383
+
+Nvidia A100 GPU,1,Deepspeed-MII,meta-llama/Llama-2-7b-hf,1024,1,16,1.6275303363800049
+Nvidia A100 GPU,1,Deepspeed-MII,meta-llama/Meta-Llama-3-8B,1024,1,16,2.4138548374176025
+Nvidia A100 GPU,1,Deepspeed-MII,mistralai/Mistral-7B-v0.1,1024,1,16,1.6925108432769775
+
+Nvidia A100 GPU,1,vLLM,meta-llama/Llama-2-7b-hf,1024,1,16,1.029996186029166
+Nvidia A100 GPU,1,vLLM,meta-llama/Meta-Llama-3-8B,1024,1,16,1.0420479719759896
+Nvidia A100 GPU,1,vLLM,mistralai/Mistral-7B-v0.1,1024,1,16,1.0323134109494276
+
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Llama-2-7b-hf,1024,1,16,0.9668681621551514
+Nvidia A100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,1,16,1.050133466720581
+Nvidia A100 GPU,1,TensorRT-LLM,mistralai/Mistral-7B-v0.1,1024,1,16,1.0446186065673828
+
+SambaNova SN40L,8,sambaflow,meta-llama/Llama-2-7b-hf,1024,1,16,2.85
+SambaNova SN40L,8,sambaflow,meta-llama/Meta-Llama-3-8B,1024,1,16,0.42
+SambaNova SN40L,8,sambaflow,mistralai/Mistral-7B-v0.1,1024,1,16,0.5
+
+Nvidia H100 GPU,1,TensorRT-LLM,meta-llama/Llama-2-7b-hf,1024,1,16,0.38651649951934813
+Nvidia H100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,1,16,0.405424165725708
+Nvidia H100 GPU,1,TensorRT-LLM,mistralai/Mistral-7B-v0.1,1024,1,16,0.4019413948059082
