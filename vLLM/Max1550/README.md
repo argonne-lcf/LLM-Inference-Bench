@@ -1,4 +1,4 @@
-# llama.cpp on Intel PVC
+# vLLM on Intel Max 1550
 
 ## First time Setup
 
@@ -21,7 +21,7 @@ VLLM_TARGET_DEVICE=xpu python3 setup.py install
 ```
 
 
-## Running Experiments 
+## Running a test Experiments 
 
 ```bash
 python3 benchmark_latency.py --device xpu --model=meta-llama/Llama-2-7b-hf --tensor-parallel-size=1 --input-len=128 --output-len=128 --batch-size=16 --dtype=float16 --trust-remote-code
@@ -96,11 +96,10 @@ Running Processes: 2
 
 This show execution on single GPU (both tiles)
 
-## Run Benchmakrs 
+## Run Benchmarks 
 
-Use provided shell scripts in this directory to run `llama-bench` for various configurations of input, output lengths and batch sizes. 
-e.g. for running `llama2-7b` benchmakr. Use
+Use provided shell script `run-bench.sh` in this directory to run `benchmark_latency.py` for various configurations of input, output lengths and batch sizes. 
 
 ```bash
-source llama2-7b.sh
+source run-bench.sh
 ```
