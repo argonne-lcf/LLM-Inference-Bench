@@ -1,4 +1,4 @@
-# Benchmarking LLMs on Nvidia A100 GPUs using vLLM
+# Benchmarking Throughput of LLMs on Nvidia A100 GPUs using vLLM
 
 
 1. Setup Virtual Environment 
@@ -31,7 +31,7 @@
     ```
 
 
-5. Run LLMs on synthetic datase
+5. Run LLMs on synthetic dataset
     ```
     bash run_benchmarks.sh
     ```

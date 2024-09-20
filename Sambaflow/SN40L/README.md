@@ -1,6 +1,5 @@
 # Benchmarking LLMs on SN40L (Cloud Sevice Provider)
 
-
 1. Setup Virtual Environment 
 
     ```bash
@@ -40,7 +39,7 @@
     ```
 
 
-6. Run LLMs on synthetic datase
+6. Run LLMs on synthetic dataset
 
     ```
     bash run_synthetic_dataset.sh
