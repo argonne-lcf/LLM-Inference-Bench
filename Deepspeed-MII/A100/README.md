@@ -1,5 +1,5 @@
-# Deepspeed-MII
-Deepspeed-MII
+# Deepspeed-MII on Nvidia A100
+
 
 1. Build a Virtual Environment and activate it
 ```bash
@@ -9,7 +9,7 @@ $ conda create -n Deepspeed -y
 $ conda activate Deepspeed
 ```
 
-2. Install Requirements
+1. Install Requirements
 ```bash
 $ pip3 install -r requirements.txt
 $ pip install deepspeed-mii
