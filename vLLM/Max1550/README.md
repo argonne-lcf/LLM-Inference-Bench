@@ -98,7 +98,8 @@ This show execution on single GPU (both tiles)
 
 ## Run Benchmarks 
 
-Use provided shell script `run-bench.sh` in this directory to run `benchmark_latency.py` for various configurations of input, output lengths and batch sizes. 
+* Replace `benchmark_latency.py` file with the one in this directory to output the results in `csv` files. 
+* Use provided shell script `run-bench.sh` in this directory to run `benchmark_latency.py` for various configurations of input, output lengths and batch sizes. 
 
 ```bash
 source run-bench.sh

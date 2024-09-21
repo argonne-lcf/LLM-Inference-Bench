@@ -26,9 +26,23 @@ python benchmark_latency.py --batch-size=32 --tensor-parallel-size=1 --input-len
 
 ## Run Benchmarks 
 
-* Replace `benchmark_latency.py` file with the one in this directory to output the results in `csv` files. 
-* Use provided shell script `run-bench.sh` in this directory to run `benchmark_latency.py` for various configurations of input, output lengths and batch sizes. 
+1. Use `benchmark_throughput.py` script provided here to collect throughput measurements in the respective `csv` file. 
+2. Use `benchmark_power.py` script provided here to collect power measurements in the respective `csv` file. 
+    > You will need `power_utils.py` file for power metric collectring in the same direcotry as the `benchmark_power.py`
+
+
+### Collect Throughput Metric
+
+* Use provided shell script `run-throughput.sh` in this directory to run `benchmark_throughput.py` for various configurations of input, output lengths and batch sizes. 
 
 ```bash
-    source run-bench.sh
+    source run-throughput-bench.sh
+```
+
+### Collect Power Metric
+
+* Use provided shell script `run-power.sh` in this directory to run `benchmark_power.py` for various configurations of input, output lengths and batch sizes. 
+
+```bash
+    source run-power-bench.sh
 ```
