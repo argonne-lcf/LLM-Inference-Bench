@@ -1,0 +1,27 @@
+Bootstrap: docker
+From: nvcr.io/nvidia/pytorch:24.06-py3
+
+%post
+
+chown root:root /usr/lib
+chmod 755 /root
+
+apt-get update && \
+apt-get install -y build-essential python3 python3-pip git libcurl4-openssl-dev libgomp1
+
+pip install --upgrade pip setuptools wheel
+
+git clone https://github.com/ggerganov/llama.cpp.git
+cd llama.cpp
+pip install -r requirements.txt
+
+export GGML_CUDA=1
+export LLAMA_CURL=1
+
+make -j
+
+%labels 
+Maintainer Sid Raskar (sraskar@anl.gov)
+
+%help
+This container is build on Grace Hopper ARM64 architecture for llama.cpp infernece 
