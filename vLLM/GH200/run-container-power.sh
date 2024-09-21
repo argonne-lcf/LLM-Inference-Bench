@@ -10,6 +10,6 @@ apptainer exec --nv --no-mount /gpfs/jlse-fs0 \
     --bind /vast/users/sraskar/model_weights/GGUF_weights/:/vast/users/sraskar/model_weights/GGUF_weights \
     --bind /vast/users/sraskar/h100/tensorRT/trt_weights:/vast/users/sraskar/h100/tensorRT/trt_weights \
     --bind /vast/users/sraskar/mi250/hf:/vast/users/sraskar/mi250/hf vllm-gh200.sif \
-    /vast/users/sraskar/gh200/llm_research/vllm/benchmarks/run-models.sh
+    /vast/users/sraskar/gh200/llm_research/vllm/benchmarks/run-power-bench.sh
 
 

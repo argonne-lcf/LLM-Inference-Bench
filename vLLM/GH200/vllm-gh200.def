@@ -41,9 +41,6 @@ pip install \
     uvicorn
 
 
-
-
-
 %label 
 This container uses nvidia ubuntu 22.04 as base and installs requirements to run vLLM on GH200. 
 Maintaier: Sid Raskar(sraskar@anl.gov)
