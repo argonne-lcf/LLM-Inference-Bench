@@ -1,0 +1,63 @@
+Bootstrap: docker
+From: nvcr.io/nvidia/pytorch:24.08-py3
+
+%environment
+
+TRT_VER=10.3.0.26
+RELEASE_URL_TRT=https://developer.nvidia.com/downloads/compute/machine-learning/tensorrt/10.3.0/tars/TensorRT-${TRT_VER}.ubuntu-22.04.aarch64-gnu.cuda-12.5.tar.gz
+
+# Configure the environment to include TRT
+LD_LIBRARY_PATH=/usr/local/tensorrt/lib:${LD_LIBRARY_PATH}
+TRT_ROOT=/usr/local/tensorrt
+
+%files
+
+trtllm.patch /workspace/tmp/
+
+
+%post
+
+# apt-get update && apt-get -y install python3.10 python3-pip openmpi-bin libopenmpi-dev git git-lfs
+
+export TRT_VER=10.3.0.26
+export RELEASE_URL_TRT=https://developer.nvidia.com/downloads/compute/machine-learning/tensorrt/10.3.0/tars/TensorRT-${TRT_VER}.ubuntu-22.04.aarch64-gnu.cuda-12.5.tar.gz
+
+export LD_LIBRARY_PATH=/usr/local/tensorrt/lib:${LD_LIBRARY_PATH}
+export TRT_ROOT=/usr/local/tensorrt
+
+# Download TRT Developer version to get access to libraries
+curl -fSL -o /tmp/tensorrt.tar.gz ${RELEASE_URL_TRT} \
+   && tar xzvf /tmp/tensorrt.tar.gz --exclude="lib*win.so*" --exclude="*.a" -C /usr/local \
+   && rm /tmp/tensorrt.tar.gz \
+   && find /usr/local -maxdepth 1 -name Tens* -type d -exec ln -s {} /usr/local/tensorrt \;
+
+# Install TRT
+pip3 install /usr/local/tensorrt/python/tensorrt-*-cp$( python3 -c "import sys; print(str(sys.version_info.major) + str(sys.version_info.minor))" )*
+
+
+# Install git lfs
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+apt-get install git-lfs
+
+cd /workspace
+# Clone TRT-LLM, apply patch and install 
+git clone https://github.com/NVIDIA/TensorRT-LLM.git tensorrt_llm
+
+cd /workspace/tensorrt_llm
+git lfs install && git lfs pull
+git submodule update --init --recursive
+cp /workspace/tmp/trtllm.patch .
+git apply trtllm.patch
+
+python3 ./scripts/build_wheel.py --trt_root ${TRT_ROOT} --cuda_architectures "80-real;89-real;90-real"
+pip install -e .
+
+%labels
+Maintainer: Sid Raskar (sraskar@anl.gov)
+
+%help
+This container uses nvidia ubuntu image as base and installs requirements to run trt-llm
+
+
+
+
