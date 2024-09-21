@@ -1,17 +1,3 @@
-# Setup vLLM on GH200
-
-
-
-2. Run container.  
-```bash
-sourece run-container.sh
-```
-This will run the container and execute the `run-models.sh` script. 
-  
-3. Run models 
-First `run-models.sh` will install the dependacnies by calling `wheels/setup_wheel.sh` script. It will run benchmakrs following it. 
-
-
 # Benchmarking LLMs on Nvidia GH200 using vLLM
 
 We utilized GH200 systems at JLSE testbeds at ALCF. We use apptainers to setup vLLM. 
