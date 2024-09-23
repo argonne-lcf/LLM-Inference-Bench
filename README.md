@@ -10,7 +10,7 @@ LLM-Inference-Bench: Inference Benchmarking of Large Language Models on AI Accel
 |      [llama.cpp](./llama.cpp/)      |     [Yes](./llama.cpp/A100/)    |     [Yes](./llama.cpp/H100/)    |      [Yes](./llama.cpp/GH200/)     |    [Yes](./llama.cpp/MI250/)   |    [Yes](./llama.cpp/MI300X/) | [Yes](./llama.cpp/Max1550/)   |      N/A      |       N/A       |
 |     [TensorRT-LLM](./TensorRT-LLM/)    |     [Yes](./TensorRT-LLM/A100/)    |     [Yes](./TensorRT-LLM/H100/)    |     [Yes](./TensorRT-LLM/GH200/)     |    N/A | N/A    |    N/A    |      N/A      |       N/A       |
 |      [DeepSpeed-MII](./Deepspeed-MII/)      |      [Yes](./Deepspeed-MII/A100/)     |      No     |      No      |     No    |     No | No    |      [Yes](./Deepspeed-MII/Gaudi2/)     |       N/A       |
-|      [Sambaflow](./Sambaflow/)      |      N/A     |      N/A     |      N/A      |     N/A    |     N/A | N/A    |      N/A     |       [Link](./Sambaflow/SN40L/)       |
+|      [Sambaflow](./Sambaflow/)      |      N/A     |      N/A     |      N/A      |     N/A    |     N/A | N/A    |      N/A     |       [Yes](./Sambaflow/SN40L/)       |
 
 
 
