@@ -480,6 +480,7 @@ def main(args):
         # tensorrt_llm.profiler.start("tmp")
         for _ in range(ite):
             with torch.no_grad():
+                time.sleep(1)
                 power_profile.start()
                 outputs = runner.generate(
                     batch_input_ids,
@@ -508,6 +509,7 @@ def main(args):
                     streaming=args.streaming,
                     output_sequence_lengths=True,
                     return_dict=True)
+                time.sleep(1)
                 training_powers, training_powers_time = power_profile.stop()
                 power_profile.destroy()
                 torch.cuda.synchronize()
