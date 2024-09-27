@@ -7,16 +7,31 @@
 module use /opt/aurora/24.086.0/modulefiles
 module load frameworks/2024.1
 
+module use /soft/preview/pe/24.180.0-RC4/modulefiles
+module load oneapi/release/2024.2.1
+module use /soft/preview/pe/24.180.0-RC5/modulefiles
+module switch intel_compute_runtime/release/950.13
+
 # conda in the frameworks module contains an invalid channel configuration
 conda config --set allow_non_channel_urls True
 conda create -n vllm python=3.10 -y
 conda activate vllm
+
+pip install
+torch==2.3.1+cxx11.abi
+torchvision==0.18.1+cxx11.abi
+torchaudio==2.3.1+cxx11.abi
+intel-extension-for-pytorch==2.3.110+xpu
+oneccl_bind_pt==2.3.100+xpu
+--extra-index-url https://pytorch-extension.intel.com/release-whl/stable/xpu/us/
 
 # clone vllm repo to desired location and build
 git clone -b v0.5.2 https://github.com/vllm-project/vllm
 cd vllm
 pip install -r requirements-xpu.txt
 VLLM_TARGET_DEVICE=xpu python3 setup.py install
+
+export ZE_FLAT_DEVICE_HIERARCHY=FLAT
 
 ```
 

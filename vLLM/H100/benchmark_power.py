@@ -140,11 +140,11 @@ if __name__ == '__main__':
     parser.add_argument('--use-beam-search', action='store_true')
     parser.add_argument('--num-iters-warmup',
                         type=int,
-                        default=10,
+                        default=3,
                         help='Number of iterations to run for warmup.')
     parser.add_argument('--num-iters',
                         type=int,
-                        default=30,
+                        default=3,
                         help='Number of iterations to run.')
     parser.add_argument('--trust-remote-code',
                         action='store_true',

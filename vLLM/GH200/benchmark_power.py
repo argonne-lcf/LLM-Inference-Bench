@@ -16,59 +16,7 @@ from vllm.utils import FlexibleArgumentParser
 import csv
 import os
 
-# from huggingface_hub import login
-# login("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")
-
-perplexity_dict = {"huggyllama/llama-7b":3.1271538213640806,
-                    "huggyllama/llama-13b":2.9614621865686885,
-                    "mistralai/Mixtral-8x7B-v0.1":2.7458531353012336,
-                    "meta-llama/Llama-2-13b-hf":2.811120439876313,
-                    "huggyllama/llama-30b":2.744248104044345,
-                    "facebook/opt-13b":3.870206998984964,
-                    "Nexusflow/NexusRaven-V2-13B":3.3361824356186327,
-                    "mistralai/Mixtral-8x22B-v0.1":2.5427975971657135,
-                    "meta-llama/Llama-2-7b-hf":2.9624337637748193,
-                    "mistralai/Mistral-7B-v0.3":3.0581070650881257,
-                    "Qwen/Qwen1.5-7B":4.249519567986975,
-                    "google/gemma-1.1-7b-it":13.892232459056668,
-                    "meta-llama/Meta-Llama-3-8B":3.718509102406137,
-                    "facebook/opt-6.7b":4.137426439363523,
-                    "Qwen/Qwen2-7B":4.019159671931102,
-                    "tiiuae/falcon-7b":3.534306161370759,
-                    "bigscience/bloom-7b1":5.208961745879341,
-                    "EleutherAI/gpt-j-6b":3.4668491651555446,
-                    "huggyllama/llama-65b":2.6334970265470727,
-                    "meta-llama/Llama-2-70b-hf":2.491589054514988,
-                    "meta-llama/Meta-Llama-3-70B":2.9904107267016,
-                    "google/gemma-7b":4.149094819615527,
-                    "BAAI/Aquila-7B":4.671358785970369,
-                    "Deci/DeciLM-7B":3.4662699434809126
-                    }
-
-def split_string(model_name):
-    if "/" in model_name:
-        return model_name.split("/")[-1]
-    else:
-        return model_name
-
-def dump_results(list_1, list_2, model_name, csv_file_name):
-    
-    assert len(list_1) == len(list_2)
-    
-    csv_file = csv_file_name + str(split_string(model_name)) + ".csv"
-    file_exists = os.path.exists(csv_file)
-
-    with open(csv_file, 'a', newline = '') as csvfile:
-        writer = csv.writer(csvfile)
-        
-        if not file_exists:
-            writer.writerow(list_1)
-        
-        writer.writerow(list_2) 
-        
-    csvfile.close()
-
-
+from power_utils import gpuPowerProbe
 
 def main(args: argparse.Namespace):
     print(args)
@@ -91,6 +39,7 @@ def main(args: argparse.Namespace):
         ray_workers_use_nsight=args.ray_workers_use_nsight,
         use_v2_block_manager=args.use_v2_block_manager,
         enable_chunked_prefill=args.enable_chunked_prefill,
+        download_dir=args.download_dir,
         block_size=args.block_size,
         gpu_memory_utilization=args.gpu_memory_utilization,
         load_format=args.load_format,
@@ -114,60 +63,55 @@ def main(args: argparse.Namespace):
     print("Warming up...")
     for _ in tqdm(range(3), desc="Warmup iterations"):
         llm.generate(dummy_inputs, sampling_params=sampling_params, use_tqdm=False)
+    
+    sampling_params = SamplingParams(
+        n=args.n,
+        temperature=0.0 if args.use_beam_search else 1.0,
+        top_p=1.0,
+        use_beam_search=args.use_beam_search,
+        ignore_eos=True,
+        max_tokens=args.output_len,
+    )
+    dummy_prompt_token_ids = np.random.randint(10000, size=(args.batch_size, args.input_len))
+    dummy_inputs: List[PromptInputs] = [{"prompt_token_ids": batch} for batch in dummy_prompt_token_ids.tolist()]
+    
+    start_time = time.perf_counter()
+    llm.generate(dummy_inputs, sampling_params=sampling_params, use_tqdm=False)
+    end_time = time.perf_counter()
+    latency = end_time - start_time
+    total_tokens = args.batch_size*(args.input_len + args.input_len)
+    throughput =  total_tokens/latency
 
-    batch_size_list   = [1,16,32,64]
-    input_output_list = [128,256,512,1024,2048]
+    
+    power_profile = gpuPowerProbe(interval=0.25, gpu_id=0)
 
-    for bs in batch_size_list:
-        for input_output in input_output_list:
+    time.sleep(1)
+    power_profile.start()
+    llm.generate(dummy_inputs, sampling_params=sampling_params, use_tqdm=False)
+    time.sleep(1)
+    training_powers, training_powers_time = power_profile.stop()
+    power_profile.destroy()
 
-            args.batch_size = bs 
-            args.output_len = input_output
-            args.input_len = input_output
+    avg_power = np.mean(training_powers)
+    throughput_per_watt_avg_power = float(throughput/avg_power)
 
-            sampling_params = SamplingParams(
-                n=args.n,
-                temperature=0.0 if args.use_beam_search else 1.0,
-                top_p=1.0,
-                use_beam_search=args.use_beam_search,
-                ignore_eos=True,
-                max_tokens=args.output_len,
-            )
-            dummy_prompt_token_ids = np.random.randint(10000, size=(args.batch_size, args.input_len))
-            dummy_inputs: List[PromptInputs] = [{"prompt_token_ids": batch} for batch in dummy_prompt_token_ids.tolist()]
-            
-            start_time = time.perf_counter()
-            llm.generate(dummy_inputs, sampling_params=sampling_params, use_tqdm=False)
-            end_time = time.perf_counter()
-            latency = end_time - start_time
-            total_tokens = args.batch_size*(args.input_len + args.input_len)
-            throughput =  total_tokens/latency
+    list_1 = ["Hardware","Num of Hardware","Framework","Model","Input Output Length","Batch Size","Latency","Throughput","avg_power","Throughput_per_watt_avg"]
+    list_2 = ["Nvidia GH200 GPU", args.tensor_parallel_size, "vLLM", args.model, args.input_len, args.batch_size, latency, throughput, avg_power, throughput_per_watt_avg_power] 
 
-            from power_utils import gpuPowerProbe
-            power_profile = gpuPowerProbe(interval=0.10)
+    assert len(list_1) == len(list_2)
+    
+    csv_file = "power_benchmarking.csv"
+    file_exists = os.path.exists(csv_file)
 
-            power_profile.start()
-            llm.generate(dummy_inputs, sampling_params=sampling_params, use_tqdm=False)
-            training_powers, training_powers_time = power_profile.stop()
-            power_profile.destroy()
-
-            avg_power = np.mean(training_powers)
-            throughput_per_watt_avg_power = float(throughput/avg_power)
-
-            perplexity = perplexity_dict[args.model]
-
-            list_1 = ["Hardware","Num of Hardware","Framework","Model","Input Output Length","Batch Size","Latency","Throughput","area","avg_power","sum_power","Throughput_per_watt_area","Throughput_per_watt_avg","Throughput_per_watt_sum"]
-            list_2 = ["Nvidia GH200 GPU", args.tensor_parallel_size, "vLLM", args.model, args.input_len, args.batch_size, latency, throughput, None, avg_power, None, None, throughput_per_watt_avg_power,None] 
-            dump_results(list_1, list_2, args.model, csv_file_name = "7b-power_results_")
-
-            list_1 = ["Hardware","Num of Hardware","Framework","Model","Input Output Length","Batch Size","Latency","Throughput"]
-            list_2 = ["Nvidia GH200 GPU", args.tensor_parallel_size, "vLLM", args.model, args.input_len, args.batch_size, latency, throughput] 
-            dump_results(list_1, list_2, args.model, csv_file_name = "7b-throughput_results_")
-
-            list_1 = ["Hardware","Num of Hardware","Framework","Model","Input Output Length","Batch Size","Latency","Throughput","avg_power","Throughput_per_watt_avg", "Perplexity"]
-            list_2 = ["Nvidia GH200 GPU", args.tensor_parallel_size, "vLLM", args.model, args.input_len, args.batch_size, latency, throughput, avg_power, throughput_per_watt_avg_power,perplexity] 
-            dump_results(list_1, list_2, args.model, csv_file_name = "7b-perplexity_results_")
-
+    with open(csv_file, 'a', newline = '') as csvfile:
+        writer = csv.writer(csvfile)
+        
+        if not file_exists:
+            writer.writerow(list_1)
+        
+        writer.writerow(list_2) 
+        
+    csvfile.close()
 
 if __name__ == '__main__':
     parser = FlexibleArgumentParser(
@@ -196,11 +140,11 @@ if __name__ == '__main__':
     parser.add_argument('--use-beam-search', action='store_true')
     parser.add_argument('--num-iters-warmup',
                         type=int,
-                        default=10,
+                        default=3,
                         help='Number of iterations to run for warmup.')
     parser.add_argument('--num-iters',
                         type=int,
-                        default=30,
+                        default=3,
                         help='Number of iterations to run.')
     parser.add_argument('--trust-remote-code',
                         action='store_true',
