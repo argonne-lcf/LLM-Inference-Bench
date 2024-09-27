@@ -444,7 +444,7 @@ def main(args):
                          output_log_probs_npy=args.output_log_probs_npy)
 
     if args.run_profiling:
-        ite = 1
+        ite = 3
         # warmup
         for _ in range(ite):
             with torch.no_grad():
