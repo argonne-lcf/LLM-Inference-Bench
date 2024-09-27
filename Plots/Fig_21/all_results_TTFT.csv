@@ -36,3 +36,6 @@ Nvidia H100 GPU,1,TensorRT-LLM,meta-llama/Llama-2-7b-hf,1024,1,16,0.386516499519
 Nvidia H100 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,1,16,0.405424165725708
 Nvidia H100 GPU,1,TensorRT-LLM,mistralai/Mistral-7B-v0.1,1024,1,16,0.4019413948059082
 
+Nvidia GH200 GPU,1,TensorRT-LLM,meta-llama/Llama-2-7b-hf,1024,1,16,0.3281266689300537
+Nvidia GH200 GPU,1,TensorRT-LLM,meta-llama/Meta-Llama-3-8B,1024,1,16,0.35003018379211426
+Nvidia GH200 GPU,1,TensorRT-LLM,mistralai/Mistral-7B-v0.1,1024,1,16,0.3479674577713013
