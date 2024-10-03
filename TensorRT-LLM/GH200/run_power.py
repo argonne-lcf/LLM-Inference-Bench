@@ -22,7 +22,6 @@ from pathlib import Path
 
 
 from power_utils import gpuPowerProbe
-power_profile = gpuPowerProbe(interval=0.10)
 
 
 import numpy as np
@@ -444,7 +443,7 @@ def main(args):
                          output_log_probs_npy=args.output_log_probs_npy)
 
     if args.run_profiling:
-        ite = 1
+        ite = 3
         # warmup
         for _ in range(ite):
             with torch.no_grad():
@@ -478,10 +477,12 @@ def main(args):
                 torch.cuda.synchronize()
 
         # tensorrt_llm.profiler.start("tmp")
+        power_profile = gpuPowerProbe(0.25, gpu_id=0)
         for _ in range(ite):
             with torch.no_grad():
                 time.sleep(1)
                 power_profile.start()
+                t_0 = time.perf_counter()
                 outputs = runner.generate(
                     batch_input_ids,
                     max_new_tokens=args.max_output_len,
@@ -509,9 +510,8 @@ def main(args):
                     streaming=args.streaming,
                     output_sequence_lengths=True,
                     return_dict=True)
-                time.sleep(1)
+                t = time.perf_counter() - t_0
                 training_powers, training_powers_time = power_profile.stop()
-                power_profile.destroy()
                 torch.cuda.synchronize()
                 
                 list_1 = ["Hardware",
@@ -520,8 +520,8 @@ def main(args):
                         "Model",
                         "Input Output Length",
                         "Batch Size",
-                        "training_powers",
-                        "training_powers_time"
+                        "avg_power",
+                        "latency"
                         ]
                     
                 list_2 = ["Nvidia A100 GPU",
@@ -530,8 +530,8 @@ def main(args):
                         args.model_name,
                         args.max_input_length,
                         args.batch_size,
-                        list(training_powers),
-                        list(training_powers_time)
+                        sum(training_powers)/len(training_powers),
+                        t
                         ] 
 
                 assert len(list_1) == len(list_2)
@@ -556,8 +556,9 @@ def main(args):
                         
                         writer.writerow(list_2) 
                         
-                    csvfile.close()
+                    #csvfile.close()
 
+        power_profile.destroy()
         # tensorrt_llm.profiler.stop("tmp")
 
         # print(
@@ -608,12 +609,4 @@ if __name__ == '__main__':
     args.input_text = generate_input(args)
     main(args)
 
-
-
-
-
-power_profile.start()
-
-training_powers, training_powers_time = power_profile.stop()
-power_profile.destroy()
 
