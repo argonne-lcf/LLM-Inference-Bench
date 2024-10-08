@@ -1,3 +1,11 @@
+"""
+File: power_utils.py
+Author: Farah Ferdaus
+Email: fferdaus@anl.gov
+Last updated: Jul 22, 2024
+Description: A power analysis routine using built-in power monitoring tools provided by the vendor.
+"""
+
 import multiprocessing
 import os
 import time
