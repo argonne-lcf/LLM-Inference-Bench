@@ -1,0 +1,164 @@
+@font-face {
+    font-family:century schoolbook;
+    font-style:normal;
+    font-weight:700;
+    src:local('Century Schoolbook'),url(https://fonts.cdnfonts.com/s/56680/SCHLBKB.woff) format('woff')
+  }
+
+body {
+    background-color: #f8f9fa;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Century Schoolbook', sans-serif;
+    overflow-y: scroll;
+}
+
+#titlePane {
+    width: 100%;
+    height: 7%;
+    padding: 1% 0%;
+    align-items: center;
+    justify-content: space-around;
+    font-size: x-large;
+    font-weight: bold;  
+    text-align: center;
+    background-color: #303236;
+    color: white;
+}
+
+#mainPane {
+    width: 100%;
+    height: 700px;
+    display: flex;
+    flex-direction: row;
+}
+
+#footerPane {
+    width: 100%;
+    /* background-color: #303236; */
+}
+
+.vertical-menu {
+    width: 20%;
+    background-color: #fff;
+    border-right: 1px solid #dee2e6;
+    height: 100%;
+    padding: 20px 10px 10px 10px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: scroll;
+}
+
+#canvas {
+    /* width: 90%;
+    height: 100%; */
+    width: 1080px;
+    height: 700px;
+}
+
+.configSelector {
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.menu-section {
+    margin-bottom: 10px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px;
+    background-color: #e0e0e0;
+    /* border-radius: 5px; */
+}
+
+.icon {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.content {
+    display: none;
+    padding: 3px;
+    margin-bottom: 5px;
+    background-color: #e0e0e0;
+    font-size: small;
+}
+
+.filterDropDown, .selectorDropDown, .optionDropDown {
+    margin: 2px;
+    font-size: small;
+}
+
+.optionContainer {
+    margin: 2px;
+}
+
+button, input, #configDropdownMenuButton {
+    font-size: small;
+}
+
+.multiSelectItem {
+    vertical-align: middle;
+    align-items: center;
+    font-size: small;
+}
+
+#instructions, #github, #metricsTable, #ack, #citation {
+    /* text-align: center; */
+    background-color: #ffffff;
+    margin: 10px 25px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: small;
+}
+
+table {
+    margin: 0 auto; /* or margin: 0 auto 0 auto */
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #e6e7e8;
+}
+
+#btnTour {
+    float: right;
+    margin-top: 0.4%;
+    margin-right: 0.5%;
+}
+
+.x-axis text, .y-axis text {
+    font-family: 'Century Schoolbook', sans-serif;
+    /* font-size: 21px; */
+}
+  
+.axis-grid line {
+    stroke: rgb(206, 207, 208);
+}
+
+.axisText, .legendTitle {
+    /* font-size: 21px; */
+    font-weight: lighter;
+}
+
+.legendIconText {
+    /* font-size: 21px; */
+    font-weight: lighter;
+}
+
+.bbox {
+    fill: none;
+    stroke: black;
+  }

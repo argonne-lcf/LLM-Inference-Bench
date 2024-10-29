@@ -1,0 +1,39 @@
+{
+    "Filters":[
+        {
+            "name": "Hardware",
+            "multi_select": "yes", 
+            "default":[]
+        },
+        {
+            "name": "Num of Hardware",
+            "multi_select": "yes", 
+            "default":["1", "8"]
+        },
+        {
+            "name": "Framework",
+            "multi_select": "yes", 
+            "default":["vLLM"]
+        },
+        {
+            "name": "Model",
+            "multi_select": "yes", 
+            "default":["meta-llama/Meta-Llama-3-8B"]
+        },
+        {
+            "name": "Input Output Length",
+            "multi_select": "yes", 
+            "default":["1024"]
+        },
+        {
+            "name": "Batch Size",
+            "multi_select": "yes", 
+            "default":[]
+        }
+    ],
+    "Selectors":[
+        {"id":"x", "name": "X-axis", "multi_select": "no", "values":["", "Input Output Length", "Batch Size", "Num of Hardware"], "default":"Batch Size"},
+        {"id":"y", "name": "Y-axis", "multi_select": "no", "values":["", "Latency", "Throughput"], "default":"Throughput"},
+        {"id":"c", "name": "Color By", "multi_select": "yes", "values":["Num of Hardware", "Hardware", "Input Output Length", "Batch Size", "Framework", "Model"], "default":["Hardware"]}
+    ]
+}

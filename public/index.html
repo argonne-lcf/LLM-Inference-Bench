@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLM Inference Bench Dashboard</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.0.0/introjs.min.css" />
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <div id="titlePane">
+    <label id="title">LLM Inference Bench Dashboard</label>
+    <button id="btnTour" onclick="startTour()">Take an Introduction Tour</button>
+  </div>
+  <div id="mainPane">
+    <div class="vertical-menu">
+      <div data-intro="This is the configuration dropdown. Start with this control first as it will populate other controls with correct content. Choose a configuration to plot. Throughput is selected by default." class="dropdown configSelector">
+        <label id="lblConfig">Configuration</label>
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="configDropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+          Throughput
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="configDropdownMenuButton">
+          <li><button class="dropdown-item configButton active" id="config_throughput" type="button" datadir="Throughput">Throughput</button></li>
+          <li><button class="dropdown-item configButton" id="config_kv_cache_block_size" type="button" datadir="KV_Cache_Block_Size">KV Cache Block Size</button></li>
+          <li><button class="dropdown-item configButton" id="config_kv_cache_dtype" type="button" datadir="KV_Cache_Dtype">KV Cache dtype</button></li>
+          <li><button class="dropdown-item configButton" id="config_parallelism" type="button" datadir="Parallelism">Parallelism</button></li>
+          <li><button class="dropdown-item configButton" id="config_power" type="button" datadir="Power">Power</button></li>
+          <!-- <li><button class="dropdown-item configButton" id="config_quantization" type="button" datadir="Quantization">Quantization</button></li> -->
+          <li><button class="dropdown-item configButton" id="config_kv_cache" type="button" datadir="KV_Cache">KV Cache</button></li>
+          <li><button class="dropdown-item configButton" id="config_perplexity" type="button" datadir="Perplexity">Perplexity</button></li>
+          <li><button class="dropdown-item configButton" id="config_speculative_decoding" type="button" datadir="Speculative_Decoding">Speculative Decoding</button></li>
+          <li><button class="dropdown-item configButton" id="config_best_hardware_framework" type="button" datadir="Best_Hardware_and_Framework">Best Hardware and Framework</button></li>
+        </ul>
+      </div>
+
+      <!-- Selectors Section -->
+      <div id="selectors-section" class="menu-section">
+        <div data-intro="This is the exapandable section with selectors. The controls in this section are mandatory for a graph to be displayed. Clicking on the header will expand the section and display the controls. It has options to choose attributes for X-axis, Y-axis, and color." class="section-header" onclick="toggleSection('selectors')">
+            <h6>Selectors</h6>
+            <span class="icon" id="selectors-icon">+</span>
+        </div>
+        <div class="content" id="selectors-content">
+            <!-- Selectors will be populated here dynamically -->
+        </div>
+      </div>
+
+      <!-- Filters Section -->
+      <div id="filters-section" class="menu-section">
+          <div data-intro="This is the exapandable section with filters. The controls in this section helps in fine tuning the plots. Examples include filtering specific models, hardware, frameworks etc." class="section-header" onclick="toggleSection('filters')">
+              <h6>Filters</h6>
+              <span class="icon" id="filters-icon">+</span>
+          </div>
+          <div class="content" id="filters-content">
+              <!-- Filters will be populated here dynamically -->
+          </div>
+      </div>
+
+      <!-- Options Section -->
+      <div id="options-section" class="menu-section">
+        <div data-intro="Finally, this is another exapandable section with bunch of styling options. Examples include cntrols for inputting a meaningful title, axis labels, position of the legend etc." class="section-header" onclick="toggleSection('options')">
+            <h6>Options</h6>
+            <span class="icon" id="options-icon">+</span>
+        </div>
+        <div class="content" id="options-content">
+            <!-- Options will be populated here dynamically -->
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-primary" id="btnUpdate">Update</button>
+    </div>
+    <div data-intro="This is the canvas where the plots are rendered based on the options chosen." id="canvas"></div>
+  </div>
+  <hr>
+  <div data-intro="Lastly, this section displays the extra information regarding the project, publications, and links to the project code and data" id="footerPane">
+    <div id="instructions">
+      <h6>Instructions</h6>
+      <ul>
+        <li>Configuration: Use the configuration dropdown to load a different configuration to plot.</li>
+        <li>Selectors: These controls are mandatory for a graph to be displayed. It requires selecting attributes for X-axis, Y-axis, and color.</li>
+        <li>Filters: The controls in this section helps in fine tuning the plots. Examples include filtering specific models, hardware, frameworks etc.</li>
+        <li>Options: This section has wide range to features to beautify the plot. Examples include giving a meaningful title, axis labels, position of the legend etc.</li>
+      </ul>
+    </div>
+    <div id="github">
+      <h6>Github</h6>
+      <ul>
+        <li><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main"> LLM Inference Bench</a></li>
+        <li><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/gh-pages"> LLM Inference Bench Dashboard</a></li>
+      </ul>
+    </div>
+    <div id="metricsTable">
+      <h6>Metrix of Evaluated Frameworks and Hardwares: </h6>
+      <br>
+      <table>
+        <tr>
+          <th>Framework/ Hardware</th>
+          <th>NVIDIA A100</th>
+          <th>NVIDIA H100</th>
+          <th>NVIDIA GH200</th>
+          <th>AMD MI250</th>
+          <th>AMD MI300X</th>
+          <th>Intel Max1550</th>
+          <th>Habana Gaudi2</th>
+          <th>Sambanova SN40L</th>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/vLLM/">vLLM</a></td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/vLLM/A100/">Yes</a></td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/vLLM/H100/">Yes</a></td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/vLLM/GH200/">Yes</a></td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/vLLM/MI250/">Yes</a></td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/vLLM/MI300X/">Yes</a></td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/vLLM/Max1550/">Yes</a></td>
+          <td>No</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/llama.cpp/">llama.cpp</a></td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/llama.cpp/A100/">Yes</a></td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/llama.cpp/H100/">Yes</a></td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/llama.cpp/GH200/">Yes</a></td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/llama.cpp/MI250/">Yes</a></td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/llama.cpp/MI300X/">Yes</a></td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/llama.cpp/Max1550/">Yes</a></td>
+          <td>N/A</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/TensorRT-LLM/">TensorRT-LLM</a></td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/TensorRT-LLM/A100/">Yes</a></td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/TensorRT-LLM/H100/">Yes</a></td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/TensorRT-LLM/GH200/">Yes</a></td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/Deepspeed-MII/">DeepSpeed-MII</a></td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/Deepspeed-MII/A100/">Yes</a></td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td>No</td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/Deepspeed-MII/Gaudi2/">Yes</a></td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/Sambaflow/">Sambaflow</a></td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td>N/A</td>
+          <td><a href="https://github.com/argonne-lcf/LLM-Inference-Bench/tree/main/Sambaflow/SN40L/">Yes</a></td>
+        </tr>
+      </table>
+    </div>
+    <div id="citation">
+      <h6>Cite this work: </h6>
+      <pre>
+        @INPROCEEDINGS{####, 
+        author=Krishna Teja Chitty-Venkata and Siddhisanket Raskar and Bharat Kale and Farah Ferdaus and Aditya Tanikanti and Ken Raffenetti and Valerie Taylor and Murali Emani and Venkatram Vishwanath},
+        LLM-Inference-Bench: Inference Benchmarking of Large Language Models on AI Accelerators
+        booktitle={2024 IEEE/ACM International Workshop on Performance Modeling, Benchmarking and Simulation of High Performance Computer Systems (PMBS)}, 
+        title={LLM-Inference-Bench: Inference Benchmarking of Large Language Models on AI Accelerators}, 
+        year={2024},
+        volume={},
+        number={},
+        pages={},
+        keywords={Large Language Models, AI Accelerators, Performance Evaluation, Benchmarking },
+        doi={}}
+      </pre>
+    </div>
+    <div id="ack">
+      <h6>Acknowledgements</h6>
+      <p>
+        This research used resources of the Argonne Leadership Computing Facility, a U.S. Department of Energy (DOE) Office of Science user facility at Argonne National Laboratory and is based on research supported by the U.S. DOE Office of Science-Advanced Scientific Computing Research Program, under Contract No. DE-AC02-06CH11357. We gratefully acknowledge the computing resources provided and operated by the Joint Laboratory for System Evaluation (JLSE) at Argonne National Laboratory.
+      </p>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.0.0/intro.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
