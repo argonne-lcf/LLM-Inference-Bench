@@ -2,12 +2,12 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Serve static files from the 'public' folder
-app.use(express.static('public'));
+// Serve static files from the 'docs' folder
+app.use(express.static('docs'));
 
 // Define routes
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+  res.sendFile(__dirname + '/docs/index.html');
 });
 
 // Start the server

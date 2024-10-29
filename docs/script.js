@@ -299,6 +299,8 @@ function configurationChanged() {
     curSel.classed('active', true);
     d3.select(`#configDropdownMenuButton`).text(curSel.text());
     options[3].val =  "";
+    options[4].val =  "";
+    options[8].val =  "";
     readFiles(curSel.attr('datadir'));
 }
 

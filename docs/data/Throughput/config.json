@@ -8,7 +8,7 @@
         {
             "name": "Num of Hardware",
             "multi_select": "yes", 
-            "default":["1", "8"]
+            "default":["1"]
         },
         {
             "name": "Framework",
