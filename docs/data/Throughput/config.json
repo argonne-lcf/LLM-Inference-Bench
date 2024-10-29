@@ -28,7 +28,7 @@
         {
             "name": "Batch Size",
             "multi_select": "yes", 
-            "default":[]
+            "default":["1","16","32","64"]
         }
     ],
     "Selectors":[
