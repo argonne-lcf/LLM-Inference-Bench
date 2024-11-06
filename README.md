@@ -19,16 +19,15 @@ LLM-Inference-Bench: Inference Benchmarking of Large Language Models on AI Accel
 
  Cite this work:
  ```
- @INPROCEEDINGS{####,
-  author={Krishna Teja Chitty-Venkata and Siddhisanket Raskar and Bharat Kale and Farah Ferdaus and Aditya Tanikanti and Ken Raffenetti and Valerie Taylor and Murali Emani and Venkatram Vishwanath},
-  booktitle={2024 IEEE/ACM International Workshop on Performance Modeling, Benchmarking and Simulation of High Performance Computer Systems (PMBS)}, 
-  title={LLM-Inference-Bench: Inference Benchmarking of Large Language Models on AI Accelerators}, 
-  year={2024},
-  volume={},
-  number={},
-  pages={},
-  keywords={Large Language Models, AI Accelerators, Performance Evaluation, Benchmarking },
-  doi={}}
+@misc{chittyvenkata2024llminferencebenchinferencebenchmarkinglarge,
+      title={LLM-Inference-Bench: Inference Benchmarking of Large Language Models on AI Accelerators}, 
+      author={Krishna Teja Chitty-Venkata and Siddhisanket Raskar and Bharat Kale and Farah Ferdaus and Aditya Tanikanti and Ken Raffenetti and Valerie Taylor and Murali Emani and Venkatram Vishwanath},
+      year={2024},
+      eprint={2411.00136},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2411.00136}, 
+}
  ```
 
 ##### Acknowledgements
