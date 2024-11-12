@@ -1,6 +1,4 @@
-# LLaMA-Inference-Bench
- 
-LLM-Inference-Bench: Inference Benchmarking of Large Language Models on AI Accelerators
+# LLM-Inference-Bench: Inference Benchmarking of Large Language Models on AI Accelerators
 
 **Authors:** Krishna Teja Chitty-Venkata, Siddhisanket Raskar, Bharat Kale, Farah Ferdaus, Aditya Tanikanti, Ken Raffenetti, Valerie Taylor, Murali Emani, Venkatram Vishwanath
 
