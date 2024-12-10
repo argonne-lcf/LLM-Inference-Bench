@@ -6,6 +6,17 @@
 
 This repository is the official implementation of ["LLM-Inference-Bench"](https://arxiv.org/pdf/2411.00136) paper 
 
+
+## Table of Contents
+
+- [About](#-about)
+- [Metrix](#metrix-of-evaluated-frameworks-and-hardwares-)
+- [Features](#metrix-of-evaluated-frameworks-and-hardwares-)
+- [Evaluated Llms](#evaluated-llms)
+- [Citation](#-citation)
+- [Acknowledgement](#acknowledgements)
+
+
 ## 📌 About
 Large Language Models (LLMs) have propelled
 groundbreaking advancements across several domains and are
