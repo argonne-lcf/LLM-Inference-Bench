@@ -13,6 +13,7 @@ This repository is the official implementation of ["LLM-Inference-Bench"](https:
 - [Metrix](#metrix-of-evaluated-frameworks-and-hardwares-)
 - [Features](#metrix-of-evaluated-frameworks-and-hardwares-)
 - [Evaluated Llms](#evaluated-llms)
+- [Dashboard](#dashboard)
 - [Citation](#-citation)
 - [Acknowledgement](#acknowledgements)
 
@@ -61,6 +62,8 @@ hardware platform.
 | Mistral-7B | Mixtral-8x7B |
 | Qwen2-7B | Qwen2-72B |
  
+## Dashboard
+Please find our results dashboard to compare different LLMs, Inference Frameworks and Hardware for different batch sizes and input/output lengths [here](https://argonne-lcf.github.io/LLM-Inference-Bench/)  
 
 ## 📌 Citation
 If you find this repository useful, please consider citing our paper:
