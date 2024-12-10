@@ -43,8 +43,10 @@ hardware platform.
 ## Key Insights 
 
 
- Cite this work:
- ```
+## 📌 Citation
+If you find this repository useful, please consider citing our paper:
+
+```
 @misc{chittyvenkata2024llminferencebenchinferencebenchmarkinglarge,
       title={LLM-Inference-Bench: Inference Benchmarking of Large Language Models on AI Accelerators}, 
       author={Krishna Teja Chitty-Venkata and Siddhisanket Raskar and Bharat Kale and Farah Ferdaus and Aditya Tanikanti and Ken Raffenetti and Valerie Taylor and Murali Emani and Venkatram Vishwanath},
@@ -54,7 +56,8 @@ hardware platform.
       primaryClass={cs.LG},
       url={https://arxiv.org/abs/2411.00136}, 
 }
- ```
+```
+
 
 ##### Acknowledgements
 
