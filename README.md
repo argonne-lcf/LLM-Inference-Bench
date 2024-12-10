@@ -66,14 +66,11 @@ hardware platform.
 If you find this repository useful, please consider citing our paper:
 
 ```
-@misc{chittyvenkata2024llminferencebenchinferencebenchmarkinglarge,
-      title={LLM-Inference-Bench: Inference Benchmarking of Large Language Models on AI Accelerators}, 
-      author={Krishna Teja Chitty-Venkata and Siddhisanket Raskar and Bharat Kale and Farah Ferdaus and Aditya Tanikanti and Ken Raffenetti and Valerie Taylor and Murali Emani and Venkatram Vishwanath},
-      year={2024},
-      eprint={2411.00136},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2411.00136}, 
+@article{chitty2024llm,
+  title={LLM-Inference-Bench: Inference Benchmarking of Large Language Models on AI Accelerators},
+  author={Chitty-Venkata, Krishna Teja and Raskar, Siddhisanket and Kale, Bharat and Ferdaus, Farah and Tanikanti, Aditya and Raffenetti, Ken and Taylor, Valerie and Emani, Murali and Vishwanath, Venkatram},
+  journal={arXiv preprint arXiv:2411.00136},
+  year={2024}
 }
 ```
 
