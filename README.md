@@ -40,8 +40,16 @@ hardware platform.
 
 
 
-## Key Insights 
+ 
+## Evaluated LLMs
 
+| Models |   |
+|-----------------------------------------------------------------------------------|----------------------------------------|
+| LLaMA-2-7B | LLaMA-2-70B |
+| LLaMA-3-8B | LLaMA-3-70B |
+| Mistral-7B | Mixtral-8x7B |
+| Qwen2-7B | Qwen2-72B |
+ 
 
 ## 📌 Citation
 If you find this repository useful, please consider citing our paper:
