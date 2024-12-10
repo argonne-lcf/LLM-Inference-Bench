@@ -4,6 +4,9 @@
 
 **Affliation:** Argonne National Laboratory
 
+This repository is the official implementation of ["LLM-Inference-Bench"](https://arxiv.org/pdf/2411.00136) paper 
+
+
 ## Metrix of Evaluated Frameworks and Hardwares :
 
 | Framework/ Hardware | NVIDIA A100 | NVIDIA H100 | NVIDIA GH200 | AMD MI250 | AMD MI300X | Intel Max1550 | Habana Gaudi2 | Sambanova SN40L |
