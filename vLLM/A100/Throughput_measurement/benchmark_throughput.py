@@ -11,7 +11,6 @@ from tqdm import tqdm
 
 from vllm import LLM, SamplingParams
 from vllm.engine.arg_utils import EngineArgs
-from vllm.inputs import PromptInputs
 from vllm.model_executor.layers.quantization import QUANTIZATION_METHODS
 from vllm.utils import FlexibleArgumentParser
 import csv
@@ -22,10 +21,6 @@ def main(args: argparse.Namespace):
     
     llm = LLM(
         model=args.model,
-        speculative_model=args.speculative_model,
-        num_speculative_tokens=args.num_speculative_tokens,
-        speculative_draft_tensor_parallel_size=\
-            args.speculative_draft_tensor_parallel_size,
         tokenizer=args.tokenizer,
         quantization=args.quantization,
         tensor_parallel_size=args.tensor_parallel_size,
@@ -34,7 +29,6 @@ def main(args: argparse.Namespace):
         max_model_len=args.max_model_len,
         enforce_eager=args.enforce_eager,
         kv_cache_dtype=args.kv_cache_dtype,
-        quantization_param_path=args.quantization_param_path,
         device=args.device,
         ray_workers_use_nsight=args.ray_workers_use_nsight,
         use_v2_block_manager=args.use_v2_block_manager,
@@ -63,7 +57,7 @@ def main(args: argparse.Namespace):
                                             size=(args.batch_size,
                                                     args.input_len))
     
-    dummy_inputs: List[PromptInputs] = [{
+    dummy_inputs = [{
         "prompt_token_ids": batch
     } for batch in dummy_prompt_token_ids.tolist()]
     
