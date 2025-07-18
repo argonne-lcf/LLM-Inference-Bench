@@ -47,7 +47,6 @@ def main(args: argparse.Namespace):
         n=args.n,
         temperature=0.0 if args.use_beam_search else 1.0,
         top_p=1.0,
-        use_beam_search=args.use_beam_search,
         ignore_eos=True,
         max_tokens=args.output_len,
     )
